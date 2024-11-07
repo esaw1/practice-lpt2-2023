@@ -28,17 +28,17 @@ OCFLAGS		:= -O srec
 
 # Files
 HDRS		:=
-SRCS		:= q1.s
+SRCS		:= q2.s
 OBJS		:= $(patsubst %, %.o, $(SRCS))
 
 # Targets
-COMPILE: q1.srec
+COMPILE: q2.srec
 
-q1.srec: q1.axf
+q2.srec: q2.axf
 	$(RM) $@
 	$(OC) $(OCFLAGS) $< $@
 
-q1.axf: $(OBJS)
+q2.axf: $(OBJS)
 	$(RM) $@
 	$(LD) $(LDFLAGS) $(OBJS) -o $@
 
@@ -51,5 +51,5 @@ q1.axf: $(OBJS)
 	$(AS) $(ASFLAGS) $< -o $@
 
 CLEAN: 
-	$(RM) q1.srec q1.axf $(OBJS)
+	$(RM) q2.srec q2.axf $(OBJS)
 
